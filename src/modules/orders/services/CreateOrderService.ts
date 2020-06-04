@@ -61,6 +61,10 @@ class CreateOrderService {
       };
     });
 
+    if (!orderProducts || orderProducts.length <= 0) {
+      throw new AppError('Produto(s) não encontrado(s).');
+    }
+
     const order = await this.ordersRepository.create({
       customer,
       products: orderProducts,

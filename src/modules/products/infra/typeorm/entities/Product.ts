@@ -24,7 +24,7 @@ class Product {
   quantity: number;
 
   @OneToMany(() => OrdersProducts, order => order.product)
-  order_products: OrdersProducts[];
+  order_products: Promise<OrdersProducts[]>;
 
   @CreateDateColumn()
   created_at: Date;
